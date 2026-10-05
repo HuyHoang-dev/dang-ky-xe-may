@@ -123,7 +123,7 @@ function openCert(h) {
         <div class="cert-sign">
           <div>Ngày cấp: ${esc(h.ngayDuyet || new Date().toISOString().split("T")[0])}</div>
           <b>TRƯỞNG PHÒNG CSGT</b>
-          <img src="images/seal.jpg" alt="Con dấu CSGT">
+          <img src="sign.png" alt="Con dấu CSGT">
           <b class="cert-officer">${esc(h.canBoDuyet || "Cán bộ CSGT")}</b>
           <small>(Đã ký số điện tử)</small>
         </div>
