@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cán bộ CSGT - Duyệt hồ sơ đăng ký xe máy</title>
+  <link rel="icon" href="images/seal.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar admin-navbar">
+    <div class="brand"><img src="seal.jpg" alt="Huy hiệu CSGT"><div><small>Cục Cảnh sát giao thông</small><strong>Quản lý hồ sơ - Cán bộ CSGT</strong></div></div>
+    <div class="user-action">
+      <span id="welcomeUser"></span>
+      <button class="btn btn-outline" onclick="resetData()">Đặt lại dữ liệu</button>
+      <button class="btn btn-outline" onclick="logout()">Đăng xuất</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="stats">
+      <div class="stat"><span id="cntAll">0</span>Tổng hồ sơ</div>
+      <div class="stat"><span id="cntPending">0</span>Chờ duyệt</div>
+      <div class="stat"><span id="cntApproved">0</span>Đã duyệt</div>
+      <div class="stat"><span id="cntRejected">0</span>Từ chối</div>
+    </div>
+
+    <section class="card">
+      <h3>Danh sách hồ sơ</h3>
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Tìm theo họ tên, biển số, quê quán, CMND, mã hồ sơ">
+        <select id="filterStatus">
+          <option value="">Tất cả trạng thái</option>
+          <option value="pending">Chờ duyệt</option>
+          <option value="approved">Đã duyệt</option>
+          <option value="rejected">Từ chối</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Mã hồ sơ</th><th>Chủ xe</th><th>Quê quán</th><th>Xe</th><th>Ngày nộp</th><th>Trạng thái</th><th></th></tr>
+          </thead>
+          <tbody id="hosoBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="detailDlg">
+    <h3>Chi tiết hồ sơ</h3>
+    <div id="detailBody"></div>
+    <button id="closeDlg" class="btn btn-secondary">Đóng</button>
+  </dialog>
+
+    <dialog id="certDlg" class="cert-dlg">
+    <div class="cert-bar no-print">
+      <button class="btn btn-success" onclick="window.print()">In giấy đăng ký</button>
+      <button class="btn btn-secondary" onclick="$('certDlg').close()">Đóng</button>
+    </div>
+    <div id="certBody"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
